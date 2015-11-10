@@ -54,14 +54,18 @@ public class SimpleStringLearner implements StringLearner {
     public boolean match(String testStr) {
         boolean result = true;
 
-        for (int i = 0; i < testStr.length(); i++) {
-            char c = testStr.charAt(i);
-
-            result &= learnedCharacters.get(i).contains(Character.getType(c));
+        if (testStr.length() > learnedCharacters.size()) {
+            result = false;
         }
 
-        for (int i = testStr.length(); i < learnedCharacters.size(); i++) {
-            result &= learnedCharacters.get(i).contains(null);
+        for (int i = 0; i < testStr.length() && result; i++) {
+            char c = testStr.charAt(i);
+
+            result = learnedCharacters.get(i).contains(Character.getType(c));
+        }
+
+        for (int i = testStr.length(); i < learnedCharacters.size() && result; i++) {
+            result = learnedCharacters.get(i).contains(null);
         }
 
         return result;
