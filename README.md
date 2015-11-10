@@ -1,6 +1,6 @@
-# string-normalization
+# string-learning
 
-**string-normalization** is a lightweight library for Java that helps learning from a set of strings.
+**string-learning** is a lightweight library for Java that helps learning from a set of strings.
 
 It provides a simple way to know if a string matches the others:
 
