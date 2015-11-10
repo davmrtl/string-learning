@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="string-learning" />
         <module name="string-normalization" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="string-learning" target="1.5" />
       <module name="string-normalization" target="1.5" />
     </bytecodeTargetLevel>
   </component>
