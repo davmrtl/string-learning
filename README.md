@@ -1,2 +1,2 @@
 # string-normalization
-Java library for learning normalisations from a list of Strings
+Java library for learning normalizations from a list of Strings
