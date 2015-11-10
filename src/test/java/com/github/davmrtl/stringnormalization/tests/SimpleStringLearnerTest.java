@@ -51,6 +51,9 @@ public class SimpleStringLearnerTest {
 
         // Matching because of second learn
         Assert.assertEquals(stringLearner.match("QCA 1235"), true);
+
+        // Matching with foreign chars
+        Assert.assertEquals(stringLearner.match("ÉÂE 1239"), true);
     }
 
     @Test
