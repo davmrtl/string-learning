@@ -52,23 +52,33 @@ public class SimpleStringLearner implements StringLearner {
     }
 
     public boolean match(String testStr) {
-        boolean result = true;
+        return matchWithFixedTolerance(testStr, 0);
+    }
+
+    public boolean matchWithFixedTolerance(String testStr, int tolerance) {
+        int errorCount = 0;
 
         if (testStr.length() > learnedCharacters.size()) {
-            result = false;
+            errorCount += testStr.length() - learnedCharacters.size();
         }
 
-        for (int i = 0; i < testStr.length() && result; i++) {
+        for (int i = 0; i < testStr.length() && i < learnedCharacters.size() && errorCount <= tolerance; i++) {
             char c = testStr.charAt(i);
 
-            result = learnedCharacters.get(i).contains(Character.getType(c));
+            errorCount += learnedCharacters.get(i).contains(Character.getType(c)) ? 0 : 1;
         }
 
-        for (int i = testStr.length(); i < learnedCharacters.size() && result; i++) {
-            result = learnedCharacters.get(i).contains(null);
+        for (int i = testStr.length(); i < learnedCharacters.size() && errorCount <= tolerance; i++) {
+            errorCount += learnedCharacters.get(i).contains(null) ? 0 : 1;
         }
 
-        return result;
+        return errorCount <= tolerance;
+    }
+
+    public boolean matchWithVariableTolerance(String testStr, double toleranceInPercent) {
+        int tolerance = (int) Math.floor((double) learnedCharacters.size() * toleranceInPercent);
+
+        return matchWithFixedTolerance(testStr, tolerance);
     }
 
     public int getLearnCount() {

@@ -37,7 +37,7 @@ public class SimpleStringLearnerTest {
     }
 
     @Test
-    public void sequenceOfSuccessfulMatch() {
+    public void testMatch() {
         StringLearner stringLearner = new SimpleStringLearner();
 
         // == Learning steps ==
@@ -46,36 +46,92 @@ public class SimpleStringLearnerTest {
 
         // == Matching cases ==
 
-        // Matching because of first learn
+        // Should match the first learn
         Assert.assertEquals(stringLearner.match("ADC 611"), true);
 
-        // Matching because of second learn
+        // Should match the second learn
         Assert.assertEquals(stringLearner.match("QCA 1235"), true);
 
-        // Matching with foreign chars
+        // Should match the foreign characters
         Assert.assertEquals(stringLearner.match("ÉÂE 1239"), true);
+
+        // == Non-matching cases ==
+
+        // Should not match because of the empty string
+        Assert.assertEquals(stringLearner.match(""), false);
+
+        // Should not match because it's too long
+        Assert.assertEquals(stringLearner.match("AAA 13241"), false);
+
+        // Should not match because it's too short
+        Assert.assertEquals(stringLearner.match("AEC"), false);
+
+        // Should not match because it's too short and has wrong characters
+        Assert.assertEquals(stringLearner.match("AEC#&"), false);
+
+        // Should not match because of the wrong char
+        Assert.assertEquals(stringLearner.match("A&W 123"), false);
     }
 
     @Test
-    public void sequenceOfFailingMatch() {
-        StringLearner stringLearner = new SimpleStringLearner();
+    public void testMatchWithFixedTolerance() {
+        SimpleStringLearner stringLearner = new SimpleStringLearner();
 
         // == Learning steps ==
         stringLearner.learn("ABC 123");
         stringLearner.learn("CCC 1234");
 
+        // == Matching cases ==
+
+        // Should match because only two chars are lowercase (instead of uppercase)
+        Assert.assertEquals(stringLearner.matchWithFixedTolerance("Abc 123", 2), true);
+
+        // Should match because it's too long by three chars
+        Assert.assertEquals(stringLearner.matchWithFixedTolerance("ABC 516$$#", 3), true);
+
+        // Should match because it's too short by one char
+        Assert.assertEquals(stringLearner.matchWithFixedTolerance("TED 12", 1), true);
+
         // == Non-matching cases ==
 
-        // Non-matching because of empty
-        Assert.assertEquals(stringLearner.match(""), false);
+        // Should not match because of the empty string
+        Assert.assertEquals(stringLearner.matchWithFixedTolerance("", 2), false);
 
-        // Non-matching because of too long
-        Assert.assertEquals(stringLearner.match("AAA 13241"), false);
+        // Should not match because it's way too long
+        Assert.assertEquals(stringLearner.matchWithFixedTolerance("ABC 516$$#3", 3), false);
 
-        // Non-matching because of too short
-        Assert.assertEquals(stringLearner.match("AEC"), false);
+        // Should not match because it's way too short
+        Assert.assertEquals(stringLearner.matchWithFixedTolerance("TED 2", 1), false);
+    }
 
-        // Non-matching because of the wrong char
-        Assert.assertEquals(stringLearner.match("A&W 123"), false);
+    @Test
+    public void testMatchWithVariableTolerance() {
+        SimpleStringLearner stringLearner = new SimpleStringLearner();
+
+        // == Learning steps ==
+        stringLearner.learn("ABC 123");
+        stringLearner.learn("CCC 1234");
+
+        // == Matching cases ==
+
+        // Should match because 40% of 8 learned characters is 3 errors
+        Assert.assertEquals(stringLearner.matchWithVariableTolerance("Abc#123", 0.4), true);
+
+        // Should match because 30% of 8 learned characters is 2 errors
+        Assert.assertEquals(stringLearner.matchWithVariableTolerance("ABC 516$$", 0.3), true);
+
+        // Should match because 20% of 8 learned characters is 1 error
+        Assert.assertEquals(stringLearner.matchWithVariableTolerance("TE/ 122", 0.2), true);
+
+        // == Non-matching cases ==
+
+        // Should not match because of the empty string
+        Assert.assertEquals(stringLearner.matchWithVariableTolerance("", 0.3), false);
+
+        // Should not match because it's way too long
+        Assert.assertEquals(stringLearner.matchWithVariableTolerance("ABC 516$$#3", 0.4), false);
+
+        // Should not match because it's way too short
+        Assert.assertEquals(stringLearner.matchWithVariableTolerance("TED 2", 0.2), false);
     }
 }
