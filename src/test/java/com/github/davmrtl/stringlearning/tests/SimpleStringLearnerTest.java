@@ -1,7 +1,7 @@
-package com.github.davmrtl.stringnormalization.tests;
+package com.github.davmrtl.stringlearning.tests;
 
-import com.github.davmrtl.stringnormalization.SimpleStringLearner;
-import com.github.davmrtl.stringnormalization.StringLearner;
+import com.github.davmrtl.stringlearning.SimpleStringLearner;
+import com.github.davmrtl.stringlearning.StringLearner;
 import org.junit.Assert;
 import org.junit.Test;
 

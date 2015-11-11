@@ -1,4 +1,4 @@
-package com.github.davmrtl.stringnormalization;
+package com.github.davmrtl.stringlearning;
 
 import java.util.LinkedList;
 import java.util.List;
