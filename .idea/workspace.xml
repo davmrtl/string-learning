@@ -36,10 +36,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.433213">
+            <state vertical-scroll-proportion="-8.275862">
               <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
               <folding />
             </state>
@@ -49,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.0">
-              <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+            <state vertical-scroll-proportion="0.22939068">
+              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -243,6 +243,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="string-learning" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="string-learning" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="string-learning" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -719,7 +733,13 @@
       <option name="project" value="LOCAL" />
       <updated>1447203088057</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Version bump for v0.3">
+      <created>1447203305050</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1447203305050</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -796,7 +816,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added match with error tolerance" />
     <MESSAGE value="Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
+    <MESSAGE value="Version bump for v0.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version bump for v0.3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -945,14 +966,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.0">
-          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/github/davmrtl/stringnormalization/tests/SimpleStringLearnerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -963,13 +976,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.433213">
+        <state vertical-scroll-proportion="-8.275862">
           <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22939068">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
